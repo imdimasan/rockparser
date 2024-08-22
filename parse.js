@@ -7,7 +7,7 @@ require("dotenv").config();
 /**
  * PARSER DATA
  */
-const ROCKAUTO = "https://www.rockauto.com/closeouts/?carcode=1446839";
+const ROCKAUTO = process.env.URL;
 const savedFilePath = path.join(__dirname, "savedResponse.json");
 const timeout = process.env.TIMEOUT;
 
@@ -37,7 +37,7 @@ ${data
         ?.join("%0A")}`
   )
   ?.join("===========================%0A")}%0A%0A
-<a href="https://www.rockauto.com/closeouts/?carcode=1446839">CLOSEOUTS</a>
+<a href="${process.env.URL}">CLOSEOUTS</a>
     `;
 
   const URL = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}&disable_web_page_preview=true&parse_mode=html`;
